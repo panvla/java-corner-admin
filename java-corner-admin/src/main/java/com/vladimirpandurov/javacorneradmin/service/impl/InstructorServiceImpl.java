@@ -12,11 +12,15 @@ import com.vladimirpandurov.javacorneradmin.service.UserService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
+@Transactional
 public class InstructorServiceImpl implements InstructorService {
 
     private InstructorDao instructorDao;
