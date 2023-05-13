@@ -11,6 +11,7 @@ public class InstructorMapper {
 
     public InstructorDTO fromInstructor(Instructor instructor){
         InstructorDTO instructorDTO = new InstructorDTO();
+        System.out.println("****" + instructor.getUser());
         BeanUtils.copyProperties(instructor, instructorDTO);
         return instructorDTO;
     }

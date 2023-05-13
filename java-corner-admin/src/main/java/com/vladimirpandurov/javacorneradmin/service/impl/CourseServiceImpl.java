@@ -56,6 +56,7 @@ public class CourseServiceImpl implements CourseService {
         Course loadedCourse = loadCourseById(courseDTO.getCourseId());
         Instructor instructor = instructorDao.findById(courseDTO.getInstructor().getInstructorId()).orElseThrow(() -> new EntityNotFoundException("Instructor with ID " + courseDTO.getInstructor().getInstructorId() + " Not Found"));
         Course course = courseMapper.fromCourseDTO(courseDTO);
+        course.setInstructor(instructor);
         course.setStudents(loadedCourse.getStudents());
         Course updatedCourse = courseDao.save(course);
         return courseMapper.fromCourse(updatedCourse);
